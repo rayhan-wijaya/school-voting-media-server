@@ -2,6 +2,7 @@
 
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
+import fastifyMultipart from "@fastify/multipart";
 import fsPromises from "node:fs/promises";
 import url from "node:url";
 import path from "node:path";
@@ -17,6 +18,8 @@ async function main() {
         server.register(fastifyCors, {
             origin: true,
         });
+
+        server.register(fastifyMultipart);
 
         server.listen({
             host: env.HOST,
