@@ -1,21 +1,21 @@
 {
-  "name": "school-voting-media-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@fastify/cors": "^8.3.0",
-    "@fastify/static": "^6.11.0",
-    "@t3-oss/env-core": "^0.6.1",
-    "dotenv": "^16.3.1",
-    "fastify": "^4.22.2",
-    "nodemon": "^3.0.1",
-    "zod": "^3.22.2"
-  }
+    "name": "school-voting-media-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@fastify/cors": "^8.3.0",
+        "@fastify/static": "^6.11.0",
+        "@t3-oss/env-core": "^0.6.1",
+        "dotenv": "^16.3.1",
+        "fastify": "^4.22.2",
+        "nodemon": "^3.0.1",
+        "zod": "^3.22.2"
+    }
 }
