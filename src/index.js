@@ -18,7 +18,10 @@ async function main() {
             prefix: "/image/",
         });
 
-        server.listen({ host: env.HOST, port: env.PORT });
+        server.listen({
+            host: env.HOST,
+            port: env.PORT,
+        });
     } catch (error) {
         console.error(error);
         process.exit(1);
