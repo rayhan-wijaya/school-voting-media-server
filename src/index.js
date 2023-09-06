@@ -3,6 +3,7 @@
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import fastifyMultipart from "@fastify/multipart";
+
 import fsPromises from "node:fs/promises";
 import url from "node:url";
 import path from "node:path";
@@ -20,6 +21,10 @@ async function main() {
         });
 
         server.register(fastifyMultipart);
+
+        server.post("/upload", function (request, reply) {
+            fsPromises.writeFile(path.join(directoryName));
+        });
 
         server.listen({
             host: env.HOST,
