@@ -3,12 +3,12 @@
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
 import { env } from "./lib/env.js";
-import { fileURLToPath } from "node:url";
+import url from "node:url";
 import path from "node:path";
 
 const server = Fastify();
 
-const fileName = fileURLToPath(import.meta.url);
+const fileName = url.fileURLToPath(import.meta.url);
 const directoryName = path.dirname(fileName);
 
 async function main() {
