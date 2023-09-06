@@ -3,6 +3,7 @@
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import fastifyMultipart from "@fastify/multipart";
+import fastifyStatic from "@fastify/static";
 
 import fsPromises from "node:fs/promises";
 import url from "node:url";
@@ -16,6 +17,8 @@ const directoryName = path.dirname(fileName);
 
 async function main() {
     try {
+        server.register(fastifyStatic);
+
         server.register(fastifyCors, {
             origin: true,
         });
