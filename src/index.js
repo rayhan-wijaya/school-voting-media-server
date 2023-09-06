@@ -2,9 +2,9 @@
 
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
-import { env } from "./lib/env.js";
 import url from "node:url";
 import path from "node:path";
+import { env } from "./lib/env.js";
 
 const server = Fastify();
 
