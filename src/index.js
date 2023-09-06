@@ -15,6 +15,7 @@ const server = Fastify();
 
 const fileName = url.fileURLToPath(import.meta.url);
 const directoryName = path.dirname(fileName);
+const uploadDirectory = path.join(directoryName, "uploads");
 
 async function main() {
     try {
