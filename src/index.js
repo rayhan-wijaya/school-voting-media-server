@@ -27,8 +27,41 @@ async function main() {
 
         server.register(fastifyMultipart);
 
-        server.post("/upload", function (request, reply) {
-            fsPromises.writeFile(path.join(directoryName));
+        server.post("/image/:id", async function (request, reply) {
+            const parsedParams = await z
+                .object({
+                    id: z
+                        .string()
+                        .regex(/^\d+$/)
+                        .transform(function (id) {
+                            return Number(id);
+                        }),
+                })
+                .safeParseAsync(request.params);
+
+            const parsedQuery = await z
+                .object({ format: z.string().optional() })
+                .safeParseAsync(request.query);
+
+            if (!parsedParams.success) {
+                return reply.status(400).send({
+                    error: parsedParams.error.issues,
+                });
+            }
+
+            if (!parsedQuery.success) {
+                return reply.status(400).send({
+                    error: parsedQuery.error.issues,
+                });
+            }
+
+            const imageFileName = `${parsedParams.data.id}.${
+                parsedQuery.data.format || "jpg"
+            }`;
+
+            const imagePath = path.join(uploadDirectory, imageFileName);
+
+            return reply.sendFile(imagePath);
         });
 
         server.listen({
