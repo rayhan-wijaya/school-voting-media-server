@@ -8,7 +8,6 @@ import fastifyStatic from "@fastify/static";
 import fsPromises from "node:fs/promises";
 import url from "node:url";
 import path from "node:path";
-import { z } from "zod";
 import { env } from "./lib/env.js";
 
 const server = Fastify();
