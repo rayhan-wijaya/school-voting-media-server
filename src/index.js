@@ -27,7 +27,7 @@ async function main() {
 
         server.register(fastifyMultipart);
 
-        server.post("/image/:id", async function (request, reply) {
+        server.get("/image/:id", async function (request, reply) {
             const parsedParams = await z
                 .object({
                     id: z
