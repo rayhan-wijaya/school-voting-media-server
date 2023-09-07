@@ -19,7 +19,10 @@ const uploadDirectory = path.join(directoryName, "..", "uploads");
 
 async function main() {
     try {
-        server.register(fastifyStatic);
+        server.register(fastifyStatic, {
+            root: uploadDirectory,
+            prefix: "/image/",
+        });
 
         server.register(fastifyCors, {
             origin: true,
