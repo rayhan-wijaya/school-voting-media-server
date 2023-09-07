@@ -29,7 +29,6 @@ async function main() {
 
         server.register(fastifyMultipart);
 
-
         server.listen({
             host: env.HOST,
             port: env.PORT,
