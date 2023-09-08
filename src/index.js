@@ -36,6 +36,7 @@ async function main() {
             /**
              * @typedef {object} UploadRequestBody
              * @property {import("@fastify/multipart").MultipartFile | undefined} image
+             * @property {string | undefined} fileName
              */
 
             const body =
