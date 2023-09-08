@@ -51,7 +51,7 @@ async function main() {
             }
 
             const imagePath = path.join(uploadDirectory, body.image.filename);
-            let message = fs.existsSync(imagePath)
+            const message = fs.existsSync(imagePath)
                 ? "Overrided image"
                 : "Created image";
 
