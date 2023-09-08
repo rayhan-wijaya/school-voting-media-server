@@ -5,6 +5,7 @@ import fastifyCors from "@fastify/cors";
 import fastifyMultipart from "@fastify/multipart";
 import fastifyStatic from "@fastify/static";
 
+import fs from "node:fs";
 import fsPromises from "node:fs/promises";
 import url from "node:url";
 import path from "node:path";
