@@ -51,7 +51,9 @@ async function main() {
                 });
             }
 
-            const imagePath = path.join(uploadDirectory, body.image.filename);
+            const fileName = body.fileName || body.image.filename;
+
+            const imagePath = path.join(uploadDirectory, fileName);
             const message = fs.existsSync(imagePath)
                 ? "Overrided image"
                 : "Created image";
