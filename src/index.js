@@ -32,6 +32,45 @@ async function main() {
             attachFieldsToBody: true,
         });
 
+        server.post("/upload", async function (request, reply) {
+            /**
+             * @typedef {object} UploadRequestBody
+             * @property {import("@fastify/multipart").MultipartFile | undefined} image
+             */
+
+            const body =
+                /**
+                 * @type {UploadRequestBody}
+                 */
+                (request.body);
+
+            if (!body?.image) {
+                return reply.status(400).send({
+                    error: "No image",
+                });
+            }
+
+            const imagePath = path.join(uploadDirectory, body.image.filename);
+            let message = fs.existsSync(imagePath)
+                ? "Overrided image"
+                : "Created image";
+
+            try {
+                await fsPromises.writeFile(
+                    imagePath,
+                    await body.image.toBuffer()
+                );
+            } catch (error) {
+                return reply.status(500).send({
+                    error: "Internal server error",
+                });
+            }
+
+            return reply.status(200).send({
+                message,
+            });
+        });
+
         server.listen({
             host: env.HOST,
             port: env.PORT,
