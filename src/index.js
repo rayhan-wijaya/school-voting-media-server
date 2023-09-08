@@ -28,7 +28,9 @@ async function main() {
             origin: true,
         });
 
-        server.register(fastifyMultipart);
+        server.register(fastifyMultipart, {
+            attachFieldsToBody: true,
+        });
 
         server.listen({
             host: env.HOST,
