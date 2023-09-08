@@ -32,7 +32,7 @@ async function main() {
             attachFieldsToBody: true,
         });
 
-        server.post("/upload", async function (request, reply) {
+        server.post("/image/upload", async function (request, reply) {
             /**
              * @typedef {object} UploadRequestBody
              * @property {import("@fastify/multipart").MultipartFile | undefined} image
