@@ -30,6 +30,10 @@ async function main() {
 
         server.register(fastifyMultipart, {
             attachFieldsToBody: true,
+            limits: {
+                fileSize: 10000000,
+                files: 1,
+            },
         });
 
         server.post("/image/upload", async function (request, reply) {
